@@ -1,0 +1,28 @@
+[project]
+name = "neptune-cli"
+version = "0.1.0"
+description = "Read-only command-line interface for the Neptune experiment-tracking platform."
+readme = "README.md"
+requires-python = ">=3.10,<4.0"
+license = { text = "MIT" }
+dependencies = [
+    "neptune-query<2.0.0",
+    "click>=8.1",
+    "rich>=13.0",
+    "pandas>=1.5",
+]
+
+[project.scripts]
+neptune-cli = "neptune_cli.cli:cli"
+
+[dependency-groups]
+dev = [
+    "pytest>=7.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/neptune_cli"]
